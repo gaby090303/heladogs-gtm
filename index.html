@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heladogs Mascotas | Página de prueba GTM</title>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T69X56VL');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7f7f7;color:#222}
+    header{background:#222;color:#fff;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:25px;font-weight:700}
+    nav a{color:#fff;text-decoration:none;margin-left:22px;font-size:14px}
+    .hero{padding:70px 7%;background:linear-gradient(135deg,#fff,#ececec)}
+    .hero h1{font-size:44px;margin:0 0 14px}
+    .hero p{font-size:18px;max-width:650px;line-height:1.6}
+    .btn{border:0;border-radius:8px;padding:13px 20px;font-weight:700;cursor:pointer;margin:6px 8px 6px 0}
+    .primary{background:#222;color:#fff}
+    .secondary{background:#fff;border:1px solid #bbb}
+    .section{padding:45px 7%}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .card{background:#fff;border-radius:12px;padding:22px;box-shadow:0 3px 14px rgba(0,0,0,.08)}
+    .card h3{margin-top:0}
+    footer{padding:25px 7%;background:#222;color:#fff;text-align:center}
+    #mensaje{margin-top:15px;font-weight:700}
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T69X56VL"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="logo">🐾 HELADOGS</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <h1>Heladogs Mascotas</h1>
+      <p>Alimentos, premios y productos pensados para consentir a nuestros compañeros de cuatro patas.</p>
+      <button class="btn primary" onclick="registrarEvento('clic_hero')">Conocer productos</button>
+      <button class="btn secondary" onclick="registrarEvento('clic_contacto')">Quiero más información</button>
+      <div id="mensaje"></div>
+    </section>
+
+    <section class="section" id="productos">
+      <h2>Productos destacados</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>🍦 Helado para perros</h3>
+          <p>Una opción especial para premiar a tu mascota.</p>
+          <button class="btn primary" onclick="registrarEvento('ver_producto', 'helado_para_perros')">Ver producto</button>
+        </article>
+        <article class="card">
+          <h3>🦴 Premios</h3>
+          <p>Snacks para acompañar sus momentos favoritos.</p>
+          <button class="btn primary" onclick="registrarEvento('ver_producto', 'premios')">Ver producto</button>
+        </article>
+        <article class="card">
+          <h3>🎁 Combos</h3>
+          <p>Alternativas para consentirlos con diferentes productos.</p>
+          <button class="btn primary" onclick="registrarEvento('ver_producto', 'combos')">Ver producto</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <h2>Contacto</h2>
+      <p>Esta sección sirve como punto de prueba para seguimiento de interacción.</p>
+      <button class="btn primary" onclick="registrarEvento('clic_whatsapp')">Contactar por WhatsApp</button>
+      <button class="btn secondary" onclick="registrarEvento('clic_formulario')">Abrir formulario</button>
+    </section>
+  </main>
+
+  <footer>
+    Heladogs Mascotas · Sitio de prueba para Google Tag Manager
+  </footer>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function registrarEvento(nombre, producto) {
+      var datos = {event: nombre};
+      if (producto) datos.producto = producto;
+      window.dataLayer.push(datos);
+
+      document.getElementById('mensaje').textContent =
+        'Evento enviado: ' + nombre + (producto ? ' · ' + producto : '');
+    }
+  </script>
+</body>
+</html>
